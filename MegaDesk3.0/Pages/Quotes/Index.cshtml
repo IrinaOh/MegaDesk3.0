@@ -1,0 +1,78 @@
+﻿@page
+@model MegaDesk3._0.Pages.Quotes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].CountDrawer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].SurfaceMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].BuildOption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].FinalCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Quote) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountDrawer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurfaceMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BuildOption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalCost)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
